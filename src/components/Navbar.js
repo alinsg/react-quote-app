@@ -7,6 +7,7 @@ class Navbar extends Component {
     const {onNavbarToggle, isNavbarExpanded, title, content} = this.props
     const textToTweet = `${content} - ${title}`
     const twitterIntentUrl = `https://twitter.com/intent/tweet?text=${textToTweet}`
+    const tumblrIntentUrl = `https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption=${title}&content=${content}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`
 
     return(
       <nav className="navbar is-primary">
@@ -46,7 +47,7 @@ class Navbar extends Component {
                 <p className="control">
                   <a 
                     className="button is-link tumblr-share-button" 
-                    href="https://www.tumblr.com/share"
+                    href={tumblrIntentUrl}
                   >
                     <span className="icon">
                       <i className="fab fa-tumblr"></i>
