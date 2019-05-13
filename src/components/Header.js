@@ -16,6 +16,8 @@ class Header extends Component {
     return(
       <React.Fragment>
         <Navbar 
+          title={title}
+          content={content}
           onNavbarToggle={onNavbarToggle}
           isNavbarExpanded={isNavbarExpanded}
         />

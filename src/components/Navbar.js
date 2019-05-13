@@ -4,7 +4,9 @@ import '../App.css'
 
 class Navbar extends Component {
   render() {
-    const {onNavbarToggle, isNavbarExpanded} = this.props
+    const {onNavbarToggle, isNavbarExpanded, title, content} = this.props
+    const textToTweet = `${content} - ${title}`
+    const twitterIntentUrl = `https://twitter.com/intent/tweet?text=${textToTweet}`
 
     return(
       <nav className="navbar is-primary">
@@ -28,10 +30,10 @@ class Navbar extends Component {
             <div className="navbar-item">
               <div className="field is-grouped">
                 <p className="control">
-                  <a className="button is-info"
+                  <a className="button is-info twitter-share-button"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://github.com/alinsg"
+                    href={twitterIntentUrl}
                   >
                     <span className="icon">
                       <i className="fab fa-twitter"></i>
