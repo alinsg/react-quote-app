@@ -15,6 +15,7 @@ class Body extends Component {
             <a 
               className="button is-rounded"
               onClick={onRandomButtonClick}
+              href="#placeholder"
             >
               <span><i className="fas fa-random"></i></span>New Quote
             </a>

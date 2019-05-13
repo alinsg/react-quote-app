@@ -12,7 +12,7 @@ class Navbar extends Component {
       <nav className="navbar is-primary">
         <div className="navbar-brand">
           <a className="navbar-item" href="#placeholder" target="_blank" rel="noopener noreferrer">
-            <h1 className="title" style={{color: "white"}}>ALINSG</h1>
+            <h1 className="title" style={{color: "white"}}>Quotes</h1>
           </a>
           <div 
             onClick={onNavbarToggle}
@@ -45,8 +45,8 @@ class Navbar extends Component {
                 </p>
                 <p className="control">
                   <a 
-                    className="button is-link" 
-                    href="https://www.freecodecamp.org/alinsg"
+                    className="button is-link tumblr-share-button" 
+                    href="https://www.tumblr.com/share"
                   >
                     <span className="icon">
                       <i className="fab fa-tumblr"></i>

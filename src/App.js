@@ -50,7 +50,7 @@ class App extends Component {
 
   stripHtmlFromContent = (content) => {
     const strippedContent = content.replace(/<(?:.|\n)*?>/gm, '')
-                                    .replace(/(&#[0-9];)/g, '\'')
+                                    .replace(/&#[0-9]+;/g, '\'')
     this.setState({
       content: strippedContent
     })
