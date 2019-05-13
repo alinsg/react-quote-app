@@ -9,26 +9,20 @@ class Body extends Component {
     return(
       <div className="hero-body">
         <div className="container has-text-centered">
-          <div className="card">
-            <header className="card-header has-text-centered">
-              <p className="card-header-title">
-                <em>{title}</em>
-              </p>
-            </header>
-            <div className="card-content">
-              <div className="content">
-                {content}
-              </div>
-            </div>
-            <footer className="card-footer has-text-centered">
-              <a 
-                className="card-footer-item button is-link is-outlined"
-                onClick={onRandomButtonClick}
-              >
-                <span><i className="fas fa-random"></i></span>Random quote
-              </a>
-            </footer>
+        <article className="message is-primary">
+          <div className="message-header">
+            <p>{title}</p>
+            <a 
+              className="button is-rounded"
+              onClick={onRandomButtonClick}
+            >
+              <span><i className="fas fa-random"></i></span>New Quote
+            </a>
           </div>
+          <div className="message-body">
+            {content}
+          </div>
+        </article>
         </div>
       </div>
     )

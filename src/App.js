@@ -4,8 +4,8 @@ import Header from './components/Header'
 class App extends Component {
   state = {
     url: "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=",
-    title: "Albert Einstein",
-    content: "Eureka!",
+    title: "Stan Lee",
+    content: "If you have an idea that you genuinely think is good, don’t let some idiot talk you out of it.",
     isNavbarExpanded: "",
     error: ""
   }
@@ -50,6 +50,7 @@ class App extends Component {
 
   stripHtmlFromContent = (content) => {
     const strippedContent = content.replace(/<(?:.|\n)*?>/gm, '')
+                                    .replace(/(&#[0-9];)/g, '\'')
     this.setState({
       content: strippedContent
     })
