@@ -5,7 +5,13 @@ import FullheightHero from './FullheightHero'
 
 class Header extends Component {
   render() {
-    const {onNavbarToggle, isNavbarExpanded} = this.props
+    const {
+      onNavbarToggle, 
+      isNavbarExpanded, 
+      onRandomButtonClick,
+      title,
+      content
+    } = this.props
 
     return(
       <React.Fragment>
@@ -13,7 +19,11 @@ class Header extends Component {
           onNavbarToggle={onNavbarToggle}
           isNavbarExpanded={isNavbarExpanded}
         />
-        <FullheightHero />
+        <FullheightHero 
+          title={title}
+          content={content}
+          onRandomButtonClick={onRandomButtonClick}
+        />
       </React.Fragment>
     )
   }

@@ -5,9 +5,15 @@ import '../App.css'
 
 class FullheightHero extends Component {
   render() {
+    const {onRandomButtonClick, title, content} = this.props
+
     return(
       <section className="hero is-link is-fullheight-with-navbar header-image">
-        <Body />
+        <Body 
+          onRandomButtonClick={onRandomButtonClick}
+          title={title}
+          content={content}
+        />
       </section>
     )
   }

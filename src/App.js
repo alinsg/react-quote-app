@@ -3,7 +3,11 @@ import Header from './components/Header'
 
 class App extends Component {
   state = {
-    isNavbarExpanded: ""
+    url: "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=",
+    title: "Albert Einstein",
+    content: "Eureka!",
+    isNavbarExpanded: "",
+    error: ""
   }
 
   handleNavbarToggle = () => {
@@ -18,10 +22,46 @@ class App extends Component {
     }
   }
 
+  async getQuote() {
+    try {
+      const proxyUrl = "https://big-okra.glitch.me/"
+      const data = await fetch(proxyUrl + this.state.url)
+      const jsonData = await data.json()
+      if(jsonData.length === 0) {
+        this.setState(()=> {
+          return {error: "quote API not working at the moment"}
+        })
+      } else {
+        this.setState({
+          title: jsonData[0].title,
+          content: jsonData[0].content
+        })
+        this.stripHtmlFromContent(this.state.content)
+      }
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
+  handleRandomButtonClick = (event) => {
+    event.preventDefault()
+    this.getQuote()
+  }
+
+  stripHtmlFromContent = (content) => {
+    const strippedContent = content.replace(/<(?:.|\n)*?>/gm, '')
+    this.setState({
+      content: strippedContent
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
         <Header 
+          title={this.state.title}
+          content={this.state.content}
+          onRandomButtonClick={this.handleRandomButtonClick}
           onNavbarToggle={this.handleNavbarToggle}
           isNavbarExpanded={this.state.isNavbarExpanded}
         />
